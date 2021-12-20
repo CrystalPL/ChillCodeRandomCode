@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+    id "com.github.johnrengelman.shadow" version "7.0.0"
+}
+compileJava.options.encoding = 'UTF-8'
+
+group = 'pl.chillcode'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'spigotmc-repo'
+        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+    }
+    maven {
+        name = 'sonatype'
+        url = 'https://oss.sonatype.org/content/groups/public/'
+    }
+    maven {
+        name = 'jitpack.io'
+        url = "https://jitpack.io"
+    }
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    compileOnly "org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT"
+    compileOnly "com.github.MilkBowl:VaultAPI:1.7.1"
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+    compileOnly name: 'CrCAPICore'
+    compileOnly name: 'CrCAPIMessage'
+}
+
+shadowJar {
+    archiveFileName = "$baseName.$extension"
+    classifier(null)
+    minimize()
+    destinationDirectory.set(new File("F:\\Minecraft\\minecraft1.8.8\\plugins"))
+}
