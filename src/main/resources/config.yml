@@ -7,7 +7,7 @@ command:
 # separator do czasu
 timeDelimiter: ", "
 
-# czy mają zostać wyświetlane skrócone formy czasu
+# czy mają być wyświetlane skrócone formy czasu
 # minut -> min itd.
 shortFormTime: false
 
