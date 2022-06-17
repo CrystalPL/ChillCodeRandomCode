@@ -10,8 +10,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import pl.chillcode.chillcoderandomcode.config.Config;
 import pl.chillcode.chillcoderandomcode.task.EventNotifyTask;
-import pl.crystalek.crcapi.message.MessageAPI;
-import pl.crystalek.crcapi.time.TimeUtil;
+import pl.crystalek.crcapi.core.time.TimeUtil;
+import pl.crystalek.crcapi.message.api.MessageAPI;
 
 import java.util.*;
 import java.util.stream.Collectors;

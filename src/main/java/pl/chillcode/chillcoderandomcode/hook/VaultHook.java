@@ -25,9 +25,9 @@ public class VaultHook {
             economy = registration.getProvider();
             enableVault = true;
 
-            Bukkit.getLogger().info("Vault został poprawnie załadowany");
+            Bukkit.getLogger().info("[ChillCodeRandomCode] Vault został poprawnie załadowany");
         } catch (final NoClassDefFoundError | ClassNotFoundException exception) {
-            Bukkit.getLogger().warning("Nie odnaleziono plugin vault, dawanie nagród pieniędzmi jest niemożliwe!");
+            Bukkit.getLogger().warning("[ChillCodeRandomCode] Nie odnaleziono plugin vault, dawanie nagród pieniędzmi jest niemożliwe!");
         }
     }
 }

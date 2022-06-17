@@ -1,6 +1,6 @@
 # Konfiguracja komendy /kod
 command:
-  code:
+  CodeCommand:
     name: "kod"
     aliases: "code"
 
@@ -26,13 +26,13 @@ charList: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&
 # długość kodu
 codeLength: 30
 
-# giveType — typ nagrody, jaką otrzymać ma gracz po poprawnym przepisaniu kodu
+# awardType — typ nagrody, jaką otrzymać ma gracz po poprawnym przepisaniu kodu
 # MONEY — pieniądze, WYMAGANY PLUGIN VAULT i inny plugin dodający ekonomię na serwerze
 # ITEM — itemy
-giveType: ITEM
+awardType: ITEM
 
 # ilość pieniędzy, jaką ma otrzymać gracz po poprawnym przepisaniu kodu
-giveMoney: 300
+awardMoney: 300
 
 # w jakich sekundach przed końcem ma zostać wyświetlone przypomnienie o kodzie
 # wpisz 0, jeśli takowego przypomnienia ma nie być

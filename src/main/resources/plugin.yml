@@ -2,4 +2,5 @@ name: ChillCodeRandomCode
 version: 1.0
 main: pl.chillcode.chillcoderandomcode.ChillCodeRandomCode
 authors: [ Crystal ]
-depend: [ CrCAPICore, CrCAPIMessage ]
+depend: [ CrCAPI ]
+softdepend: [ Vault ]

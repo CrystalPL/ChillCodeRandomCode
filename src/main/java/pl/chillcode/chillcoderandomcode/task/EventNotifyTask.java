@@ -6,8 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import pl.chillcode.chillcoderandomcode.code.Code;
 import pl.chillcode.chillcoderandomcode.config.Config;
-import pl.crystalek.crcapi.message.MessageAPI;
-import pl.crystalek.crcapi.time.TimeUtil;
+import pl.crystalek.crcapi.core.time.TimeUtil;
+import pl.crystalek.crcapi.message.api.MessageAPI;
 
 import java.util.List;
 
