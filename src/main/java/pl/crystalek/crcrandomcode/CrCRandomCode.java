@@ -1,19 +1,19 @@
-package pl.chillcode.chillcoderandomcode;
+package pl.crystalek.crcrandomcode;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
-import pl.chillcode.chillcoderandomcode.code.Code;
-import pl.chillcode.chillcoderandomcode.command.CodeCommand;
-import pl.chillcode.chillcoderandomcode.config.Config;
-import pl.chillcode.chillcoderandomcode.hook.VaultHook;
 import pl.crystalek.crcapi.command.CommandRegistry;
 import pl.crystalek.crcapi.core.config.exception.ConfigLoadException;
 import pl.crystalek.crcapi.message.api.MessageAPI;
 import pl.crystalek.crcapi.message.api.MessageAPIProvider;
+import pl.crystalek.crcrandomcode.code.Code;
+import pl.crystalek.crcrandomcode.command.CodeCommand;
+import pl.crystalek.crcrandomcode.config.Config;
+import pl.crystalek.crcrandomcode.hook.VaultHook;
 
 import java.io.IOException;
 
-public final class ChillCodeRandomCode extends JavaPlugin {
+public final class CrCRandomCode extends JavaPlugin {
 
     @Override
     public void onEnable() {
@@ -22,7 +22,7 @@ public final class ChillCodeRandomCode extends JavaPlugin {
             return;
         }
 
-        final Config config = new Config(this, "config.yml");
+        final Config config = new Config(this, "config.yml", new VaultHook(this).init());
         try {
             config.checkExist();
             config.load();
@@ -42,8 +42,6 @@ public final class ChillCodeRandomCode extends JavaPlugin {
             Bukkit.getPluginManager().disablePlugin(this);
             return;
         }
-
-        VaultHook.init();
 
         final Code code = new Code(config, this, messageAPI);
         CommandRegistry.register(new CodeCommand(messageAPI, config.getCommandDataMap(), code));

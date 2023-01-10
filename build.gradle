@@ -4,8 +4,8 @@ plugins {
 }
 compileJava.options.encoding = 'UTF-8'
 
-group = 'pl.chillcode'
-version = '1.0'
+group = 'pl.crystalek'
+version = '1.1'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
@@ -25,15 +25,19 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
 
-    compileOnly 'pl.crystalek:message-api:1.4.7'
-    compileOnly 'pl.crystalek:core:1.4.7'
-    compileOnly 'pl.crystalek:command:1.5.6'
+    compileOnly 'pl.crystalek:message-api:1.6.2'
+    compileOnly 'pl.crystalek:core:1.6.2'
+    compileOnly 'pl.crystalek:command:1.6.2'
 }
 
 shadowJar {
     archiveFileName = "${archiveBaseName.get()} v${archiveVersion.get()}.${archiveExtension.get()}"
 
+    var path = System.getenv("MC_PATH188")
+    if (path != null) {
+        destinationDirectory.set(new File(String.valueOf(path)))
+    }
+
     classifier(null)
     minimize()
-    destinationDirectory.set(new File(String.valueOf(System.getenv("MC_PATH188"))))
 }

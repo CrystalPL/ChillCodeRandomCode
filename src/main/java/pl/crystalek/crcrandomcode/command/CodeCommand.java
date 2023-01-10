@@ -1,14 +1,14 @@
-package pl.chillcode.chillcoderandomcode.command;
+package pl.crystalek.crcrandomcode.command;
 
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import pl.chillcode.chillcoderandomcode.code.Code;
 import pl.crystalek.crcapi.command.impl.Command;
 import pl.crystalek.crcapi.command.impl.SingleCommand;
 import pl.crystalek.crcapi.command.model.CommandData;
 import pl.crystalek.crcapi.message.api.MessageAPI;
+import pl.crystalek.crcrandomcode.code.Code;
 
 import java.util.ArrayList;
 import java.util.List;

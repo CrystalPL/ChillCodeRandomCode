@@ -1,23 +1,24 @@
-package pl.chillcode.chillcoderandomcode.task;
+package pl.crystalek.crcrandomcode.task;
 
 import com.google.common.collect.ImmutableMap;
 import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import pl.chillcode.chillcoderandomcode.code.Code;
-import pl.chillcode.chillcoderandomcode.config.Config;
+import org.bukkit.scheduler.BukkitRunnable;
 import pl.crystalek.crcapi.core.time.TimeUtil;
 import pl.crystalek.crcapi.message.api.MessageAPI;
+import pl.crystalek.crcrandomcode.code.Code;
+import pl.crystalek.crcrandomcode.config.Config;
 
 import java.util.List;
 
-@AllArgsConstructor
-@FieldDefaults(level = AccessLevel.PRIVATE)
-public final class EventNotifyTask implements Runnable {
-    final Config config;
-    final MessageAPI messageAPI;
-    final Code code;
-    final long eventEndTime;
+@RequiredArgsConstructor
+@FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
+public final class CodeNotifyTask extends BukkitRunnable {
+    Config config;
+    MessageAPI messageAPI;
+    Code code;
+    long eventEndTime;
 
     @Override
     public void run() {

@@ -1,6 +1,6 @@
-name: ChillCodeRandomCode
+name: CrCRandomCode
 version: 1.0
-main: pl.chillcode.chillcoderandomcode.ChillCodeRandomCode
+main: pl.crystalek.crcrandomcode.CrCRandomCode
 authors: [ Crystal ]
 depend: [ CrCAPI ]
 softdepend: [ Vault ]

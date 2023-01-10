@@ -34,13 +34,13 @@ awardType: ITEM
 # ilość pieniędzy, jaką ma otrzymać gracz po poprawnym przepisaniu kodu
 awardMoney: 300
 
-# w jakich sekundach przed końcem ma zostać wyświetlone przypomnienie o kodzie
-# wpisz 0, jeśli takowego przypomnienia ma nie być
-codeNotifySeconds: [5, 10]
-
 # itemy, które ma otrzymać gracz po poprawnym przepisaniu kodu
 giveItem:
   1:
     material: DIAMOND_BLOCK
     amount: 64
     name: "&b&lBloki diamentu za poprawne przepisanie kodu"
+
+# ile sekund przed końcem ma zostać wyświetlone przypomnienie o kodzie
+# wpisz 0, jeśli takowego przypomnienia ma nie być
+codeNotifySeconds: [5, 10]

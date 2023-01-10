@@ -1,4 +1,4 @@
-package pl.chillcode.chillcoderandomcode.config;
+package pl.crystalek.crcrandomcode.config;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -6,11 +6,6 @@ import lombok.experimental.FieldDefaults;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
-import pl.chillcode.chillcoderandomcode.award.AwardType;
-import pl.chillcode.chillcoderandomcode.award.IAward;
-import pl.chillcode.chillcoderandomcode.award.impl.ItemAward;
-import pl.chillcode.chillcoderandomcode.award.impl.MoneyAward;
-import pl.chillcode.chillcoderandomcode.hook.VaultHook;
 import pl.crystalek.crcapi.command.impl.Command;
 import pl.crystalek.crcapi.command.loader.CommandLoader;
 import pl.crystalek.crcapi.command.model.CommandData;
@@ -18,6 +13,11 @@ import pl.crystalek.crcapi.core.config.ConfigHelper;
 import pl.crystalek.crcapi.core.config.ConfigParserUtil;
 import pl.crystalek.crcapi.core.config.exception.ConfigLoadException;
 import pl.crystalek.crcapi.core.util.NumberUtil;
+import pl.crystalek.crcrandomcode.award.AwardType;
+import pl.crystalek.crcrandomcode.award.IAward;
+import pl.crystalek.crcrandomcode.award.impl.ItemAward;
+import pl.crystalek.crcrandomcode.award.impl.MoneyAward;
+import pl.crystalek.crcrandomcode.hook.VaultHook;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +28,8 @@ import java.util.stream.Collectors;
 @Getter
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public final class Config extends ConfigHelper {
+    final VaultHook vaultHook;
+
     Map<Class<? extends Command>, CommandData> commandDataMap;
     String timeDelimiter;
     boolean shortFormTime;
@@ -40,8 +42,10 @@ public final class Config extends ConfigHelper {
     AwardType awardType;
     IAward award;
 
-    public Config(final JavaPlugin plugin, final String fileName) {
+    public Config(final JavaPlugin plugin, final String fileName, final VaultHook vaultHook) {
         super(plugin, fileName);
+
+        this.vaultHook = vaultHook;
     }
 
     public void loadConfig() throws ConfigLoadException {
@@ -54,7 +58,7 @@ public final class Config extends ConfigHelper {
         this.characterList = ConfigParserUtil.getString(configuration, "charList").chars().mapToObj(c -> (char) c).collect(Collectors.toList());
         this.codeLength = ConfigParserUtil.getInt(configuration, "codeLength");
         this.codeNotifySecondList = loadCodeNotifySecondList();
-        this.awardType = loadAwardType();
+        this.awardType = AwardType.getAwardType(ConfigParserUtil.getString(configuration, "awardType"));
         this.award = loadAward();
     }
 
@@ -73,23 +77,14 @@ public final class Config extends ConfigHelper {
         return codeNotifySecondList;
     }
 
-    private AwardType loadAwardType() throws ConfigLoadException {
-        final String awardType = ConfigParserUtil.getString(configuration, "awardType");
-        try {
-            return AwardType.valueOf(awardType.toUpperCase());
-        } catch (final IllegalArgumentException exception) {
-            throw new ConfigLoadException("Nie odnaleziono nagrody typu: " + awardType);
-        }
-    }
-
     private IAward loadAward() throws ConfigLoadException {
         switch (awardType) {
             case MONEY:
-                if (!VaultHook.isEnableVault()) {
+                if (!vaultHook.isEnableVault()) {
                     throw new IllegalStateException("vault not found");
                 }
 
-                return new MoneyAward(ConfigParserUtil.getDouble(configuration, "awardMoney"));
+                return new MoneyAward(vaultHook, ConfigParserUtil.getDouble(configuration, "awardMoney"));
             case ITEM:
                 final ConfigurationSection awardItemConfigurationSection = configuration.getConfigurationSection("giveItem");
                 final List<String> itemSectionNumberList = new ArrayList<>(awardItemConfigurationSection.getKeys(false));

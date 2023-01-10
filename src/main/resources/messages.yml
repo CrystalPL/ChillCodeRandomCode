@@ -1,29 +1,29 @@
 # wiadomość wyświetlana, gdy komenda zostanie wywołana z konsoli
 noConsole:
-  chat: "&b&lChillCodeKity &8» &cTa komenda nie może zostać wywołana z poziomu konsoli."
+  chat: "&a&lKod/&l &8» &cTa komenda nie może zostać wywołana z poziomu konsoli."
 
 # wiadomość wysyła kod na chat'cie
 # {CODE} - kod do przepisania
 sendCode:
   chat:
     1:
-      message: "&a&lKOD &8» &7Najedź na wiadomość i przepisz jak najszybciej kod pod komendą &6/kod <kod>&7."
+      message: "&a&lKod/&l &8» &7Najedź na wiadomość i przepisz jak najszybciej kod pod komendą &6/kod <kod>&7."
       hover: "{CODE}"
 
 # wiadomość wyświetlana, gdy czas na przepisanie kodu skończy się
 codeExpired:
-  chat: "&a&lKOD &8» &7Niestety, ale poprzedni kod wygasł."
+  chat: "&a&lKod/&l &8» &7Niestety, ale poprzedni kod wygasł."
 
 # wiadomość wyświetlana na chat'cie, gdy kod wygaśnie
 codeExpiredBroadcast:
-  chat: "&a&lKOD &8» &7Niestety żaden gracz nie przepisał kodu w wyznaczonym czasie - kod wygasł."
+  chat: "&a&lKod/&l &8» &7Niestety żaden gracz nie przepisał kodu w wyznaczonym czasie - kod wygasł."
 
 # wiadomość wyświetlana do gracza, gdy przepiszę on poprawnie kod
 # {REWRITE_TIME} - czas, w jakim gracz przepisał kod
 # {PLAYER_NAME} - nazwa graczy, który przepisał kod
 # {CODE_TIME} - czas do następnego kodu
 correctCode:
-  chat: "&a&lKOD &8» &7Gratulacje! Poprawnie przepisałeś kod w czasie &6{REWRITE_TIME}&7."
+  chat: "&a&lKod/&l &8» &7Gratulacje! Poprawnie przepisałeś kod w czasie &6{REWRITE_TIME}&7."
 
 # wiadomość wyświetlana na chat'cie, gdy gracz przepiszę poprawnie kod
 # {REWRITE_TIME} - czas, w jakim gracz przepisał kod
@@ -31,26 +31,26 @@ correctCode:
 # {CODE_TIME} - czas do następnego kodu
 correctCodeBroadcast:
   chat:
-    - "&a&lKOD &8» &7Gracz &6{PLAYER_NAME} &7poprawnie przepisał kod w czasie &6{REWRITE_TIME}&7."
-    - "&a&lKOD &8» &7Następny kod zostanie wyświetlony za: &6{CODE_TIME}&7."
+    - "&a&lKod/&l &8» &7Gracz &6{PLAYER_NAME} &7poprawnie przepisał kod w czasie &6{REWRITE_TIME}&7."
+    - "&a&lKod/&l &8» &7Następny kod zostanie wyświetlony za: &6{CODE_TIME}&7."
 
 # wiadomość wyświetlana, gdy gracz przepiszę niepoprawny kod
 incorrectCode:
-  chat: "&a&lKOD &8» &cPrzepisałeś niepoprawnie kod. Próbuj dalej!"
+  chat: "&a&lKod/&l &8» &cPrzepisałeś niepoprawnie kod. Próbuj dalej!"
 
 # wiadomość wyświetlana, gdy gracz chce wpisać kod, który nie jest aktywny
 codeNoExist:
-  chat: "&a&lKOD &8» &cObecnie żaden kod nie jest aktywny!"
+  chat: "&a&lKod/&l &8» &cObecnie żaden kod nie jest aktywny!"
 
 # wiadomość wyświetlana, gdy gracz przepisze kod za wiele razy z rzędu
 codeInRow:
-  chat: "&a&lKOD &8» &cPrzepisałeś kod za wiele razy z rzędu, musisz poczekać aż inny gracz przepisze poprawnie kod!"
+  chat: "&a&lKod/&l &8» &cPrzepisałeś kod za wiele razy z rzędu, musisz poczekać aż inny gracz przepisze poprawnie kod!"
 
 # wiadomość wyświetlająca czas do rozpoczęcia się eventu przepisywania kodu
 # {TIME} - czas, za jaki rozpocznie się event
 codeNotify:
-  chat: "&a&lKOD &8» &7Za &6{TIME} &7odbędzie sie event z przepisywaniem kodu."
+  chat: "&a&lKod/&l &8» &7Za &6{TIME} &7odbędzie sie event z przepisywaniem kodu."
 
 # wiadomość wyświetlana, gdy komenda zostanie wywołana nieprawidłowo
 commandUsage:
-  chat: "&a&lKOD &8» &cPoprawne użycie: &6/kod <kod>&7."
+  chat: "&a&lKod/&l &8» &cPoprawne użycie: &6/kod <kod>&7."
